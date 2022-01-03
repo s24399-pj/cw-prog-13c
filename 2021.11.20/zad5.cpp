@@ -1,17 +1,36 @@
 #include <iostream>
-#include <cstdlib>
+#include <random>
 
 using namespace std;
 
 int main(){
-    int tab[50];
-    cout<<"Podaj zakres"<<endl;
+    random_device rd;
+    mt19937 mt(rd());
+    int A[50];
     int k;
+    cout<<"Podaj wartosc jakie ma miec k"<<endl;
     cin>>k;
-    for(int i=0; i<=k;i++){
-        tab[i]=rand()%k+1;
-        cout<<tab[i]<<endl;
+
+    // ZAPELNIANIE TABLICY LOSOWYMI LICZBAMI Z PRZEDZIALU 0-k
+
+    for(int i=0;i<50;i++){
+        int random_int=0;
+        uniform_int_distribution<int> dist(0, k);
+        random_int=dist(mt);
+        A[i]=random_int;
+        cout<<A[i]<<"\n";
     }
+
+    // SUMOWANIE LICZB Z TABLICY O INDEKSACH 30-42
+
+    int suma=0;
+
+    for(int i=30;i<=42;i++){
+        suma+=A[i];
+        cout<<i<<"\n";
+    }
+
+    cout<<"Suma wynosi: "<<suma<<endl;
 
     return 0;
 }
