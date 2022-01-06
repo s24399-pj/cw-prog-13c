@@ -24,6 +24,7 @@ int iloczyn1(int a1, int b1){
     std::cout << "Podaj pierwsza liczbe: ";
     std::cin >> b1;
     std::cout << "Wynik :" << a1 << "*" << b1 << "=" << a1 * b1 << std::endl;
+    return 0;
 }
 
 int iloczyn(){
@@ -34,6 +35,7 @@ int iloczyn(){
     std::cout << "Podaj Liczbe b: ";
     std::cin >> b;
     std::cout << "Wynik mnozenia " << a << " * " << b << " = " << a * b << std::endl;
+    return 0;
 }
 
 int main(){
