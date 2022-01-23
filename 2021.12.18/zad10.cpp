@@ -19,9 +19,9 @@ struct group{
 void AddStudentToGroup(student const& new_student,group &g){g.studenci.push_back(new_student);}
 
 void ShowGroup(group g){
-        cout << g.nazwa << ": ";
+        cout<<g.nazwa<<": ";
         for (auto stud: g.studenci) {
-            cout << stud.imie << " " << stud.nazwisko << "; "<< stud.srednia<<" ";
+            cout<<stud.imie<<" "<<stud.nazwisko<<"; "<<stud.srednia<<" ";
         }
         cout << "\n";
 }
