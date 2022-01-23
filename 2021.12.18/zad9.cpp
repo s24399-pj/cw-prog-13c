@@ -6,11 +6,11 @@ using namespace std;
 struct Student{
 string imie, nazwisko;
 vector <int> oceny;
-
 };
 
 float average_of(Student student){
-float suma =0;
+    float suma=0;
+
     for(int i=0;i<student.oceny.size();i++){
         suma += student.oceny[i];
     }
@@ -19,18 +19,25 @@ float suma =0;
     return suma/student.oceny.size();
 };
 
-Student get_best_student(vector <Student> studenci) {
+Student get_best_student(vector <Student> studenci){
+    int highest_average_student_index=0;
+    float highest_average=0;
 
-     for (int i=0; i<studenci.size(); i++){
-        for (int j=0; j<(studenci.size()-1); j++){
-            if (average_of(studenci[j])>average_of(studenci[j+1])){
-                swap(studenci[j],studenci[j+1]);
-        }
+    for (int i=0; i<studenci.size(); i++){
+        float current_student_average=0;
+
+        Student current_student;
+        current_student=studenci[i];
+        current_student_average=average_of(current_student);
+        if(current_student_average>highest_average){
+            highest_average=current_student_average;
+            highest_average_student_index=i;
         }
     }
-
-        return studenci.back();
-    };
+    cout<<"highest_average_student_index: "<<highest_average_student_index<<endl;
+    cout<<"highest_average: "<<highest_average<<endl;
+    return studenci[highest_average_student_index];
+};
 
 
 
